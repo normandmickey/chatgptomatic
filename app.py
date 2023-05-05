@@ -117,8 +117,7 @@ def message_handler(message, say, logger):
       else:
         output = "Response flagged by OpenAI moderation."
 
-    say(OPENAI_MODEL + ": " + message['text'])
-    say(output)
+    say(OPENAI_MODEL + ": " + message['text'] + " " + output)
 
 @app.command("/askgpt")
 def askgpt_submit(ack: Ack, respond: Respond, command: dict, client: WebClient):
@@ -149,8 +148,7 @@ def askgpt_submit(ack: Ack, respond: Respond, command: dict, client: WebClient):
     else:
       output = "Question flagged by OpenAI moderation."
 
-    respond(text="AskGPT: " + command['text'])
-    respond(output)
+    respond(text="AskGPT: " + command['text'] + " " + output)
     return
 
 @app.command("/askhc")
@@ -162,11 +160,11 @@ def askhc_submit(ack: Ack, respond: Respond, command: dict, client: WebClient):
     hcTemp = 0.1
     try:
       output = chatbot.chat(command['text'], hcTemp)
+      print(output)
     except:
       output = "Hugging Chat is busy try again."
 
-    respond(text="AskHC: " + command['text'])
-    respond(output)
+    respond(text="AskHC: " + command['text'] + " " + output)
     return
 
 @app.command("/clearconversation")
