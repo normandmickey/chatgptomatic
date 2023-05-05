@@ -10,7 +10,7 @@ This application is a Slack Bot that uses Langchain and OpenAI's language models
 - AskHC slach command to get quick answers from DuckDuckGo using Hugging Chat.
 
 ## Usage
-To use the MrsStax Slack Bot, the following environment variables need to be set in your .env file:
+To use ChatGPT-O-Matic, the following environment variables need to be set in your .env file:
 - SLACK_BOT_TOKEN: Token for the Slack Bot.
 - SLACK_APP_TOKEN: Token for the Slack app.
 - OPENAI_API_TOKEN: Token for OpenAi
@@ -22,6 +22,8 @@ Requires Python3.10 or higher
 Clone this repo and run the following commands
 
 ```
+sudo apt install sqlite3
+sqlite3 chatgptomatic.db < chatgptomatic.sql
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -53,6 +55,11 @@ cp env.example .env
 7. Click on "Event Subscriptions" and enable it. Click on "Subscribe to bot events" and add "message.im"
 
 8. Install App into your Slack.
+
+9. Click on Slash Commands and add the following.  
+   - /clearconversation (Short description = "Clear Conversation", Usage Hint = [Clear Conversation])
+   - /askgpt (Short Description = Ask GPT, Usage Hint = Ask GPT
+   - /askhc (Short Description = Ask HC, Usage Hint = Ask Hugging Chat)
 
 10. On your server run the following commands in a terminal.
 
