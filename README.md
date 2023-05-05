@@ -6,8 +6,8 @@ This application is a Slack Bot that uses Langchain and OpenAI's language models
 
 ## Features
 - GPT3/4 based Slack Bot (saves conversation history in SQLite3 DB until you decide to clear it).
-- AskGPT slash command to get quick answers using DuckDuckGo search.
-- AskHC slach command to get quick answers from DuckDuckGo using Hugging Chat.
+- AskGPT slash command to get quick answers using DuckDuckGo and "ChatGPT".
+- AskHC slash command to get quick answers from DuckDuckGo and "HuggingChat".
 
 ## Usage
 To use ChatGPT-O-Matic, the following environment variables need to be set in your .env file:
@@ -27,6 +27,7 @@ sqlite3 chatgptomatic.db < chatgptomatic.sql
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+deactivate
 cp env.example .env
 ```
 
@@ -65,6 +66,7 @@ cp env.example .env
 
    ```
    tmux new -s chatgptomatic
+   source venv/bin/activate
    python app.py
    ```
 
