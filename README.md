@@ -22,6 +22,7 @@ Requires Python3.10 or higher
 Clone this repo and run the following commands
 
 ```
+cd chatgptomatic
 sudo apt install sqlite3
 sqlite3 chatgptomatic.db < chatgptomatic.sql
 python3 -m venv venv
